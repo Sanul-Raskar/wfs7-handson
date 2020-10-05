@@ -36,61 +36,44 @@ public class Client {
 
 			case 2:
 
-				System.out.println("Sort by?:\n1.id\n2.name\n3.salary\n4.date of birth");
+				System.out.println("Sort by?:\n1.ID\n2.Name\n3.Salary\n4.Date of birth");
 				int opt2 = sc.nextInt();
-				ArrayList<Employee> tempEmp = null;
+				ArrayList<Employee> tempEmp = null, result = null;
+
 				switch (opt2) {
 				case 1:
 					tempEmp = empImplObj.getEmployees();
 					Collections.sort(tempEmp, (a, b) -> a.getId() - b.getId());
 					System.out.println("Ascending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
 
 					Collections.sort(tempEmp, (a, b) -> b.getId() - a.getId());
 					System.out.println("Descending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
+
 					break;
 				case 2:
 					tempEmp = empImplObj.getEmployees();
 					Collections.sort(tempEmp, (a, b) -> a.getName().compareTo(b.getName()));
 					System.out.println("Ascending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
 
 					Collections.sort(tempEmp, (a, b) -> b.getName().compareTo(a.getName()));
 					System.out.println("Descending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
+
 					break;
 
 				case 3:
@@ -106,14 +89,9 @@ public class Client {
 					});
 
 					System.out.println("Ascending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
 
 					Collections.sort(tempEmp, (a, b) -> {
@@ -126,42 +104,29 @@ public class Client {
 							return 0;
 					});
 					System.out.println("Descending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
+
 					break;
 
 				case 4:
 					tempEmp = empImplObj.getEmployees();
 					Collections.sort(tempEmp, (a, b) -> a.getDateOfBirth().compareTo(b.getDateOfBirth()));
 					System.out.println("Ascending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
 
 					Collections.sort(tempEmp, (a, b) -> b.getDateOfBirth().compareTo(a.getDateOfBirth()));
 					System.out.println("Descending order display:");
-					if (tempEmp.size() > 2) {
-						for (int i = 0; i < 3; i++) {
-							System.out.println(tempEmp.get(i));
-						}
-					} else {
-						for (Employee e : tempEmp) {
-							System.out.println(e);
-						}
+					result = empImplObj.getTop3Employees(tempEmp);
+					for (Employee e : result) {
+						System.out.println(e);
 					}
+
 					break;
 
 				default:

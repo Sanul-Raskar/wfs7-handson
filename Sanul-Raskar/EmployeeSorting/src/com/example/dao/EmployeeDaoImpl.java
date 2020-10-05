@@ -19,4 +19,20 @@ public class EmployeeDaoImpl implements IEmployee {
 		return emp;
 	}
 
+	@Override
+	public ArrayList<Employee> getTop3Employees(ArrayList<Employee> empList) {
+		ArrayList<Employee> result = new ArrayList<>();
+		
+		if (empList.size() > 2) {
+			for (int i = 0; i < 3; i++) {
+				result.add(empList.get(i));
+			}
+		} else {
+			for (Employee e : empList) {
+				result.add(e);
+			}
+		}
+		return result;
+	}
+
 }
