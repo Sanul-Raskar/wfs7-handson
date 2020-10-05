@@ -17,7 +17,7 @@ public class Client {
 		Scanner sc = new Scanner(System.in);
 		int opt = -1;
 		do {
-			System.out.println("Select a option:\n1.Enter Employee\n2.Sort and Dsipay\n3.Exit");
+			System.out.println("Select a option:\n1.Enter Employee\n2.Sort and Dispay\n3.Exit");
 			opt = sc.nextInt();
 
 			switch (opt) {
@@ -44,28 +44,52 @@ public class Client {
 					tempEmp = empImplObj.getEmployees();
 					Collections.sort(tempEmp, (a, b) -> a.getId() - b.getId());
 					System.out.println("Ascending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 
 					Collections.sort(tempEmp, (a, b) -> b.getId() - a.getId());
 					System.out.println("Descending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 					break;
 				case 2:
 					tempEmp = empImplObj.getEmployees();
 					Collections.sort(tempEmp, (a, b) -> a.getName().compareTo(b.getName()));
 					System.out.println("Ascending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 
 					Collections.sort(tempEmp, (a, b) -> b.getName().compareTo(a.getName()));
 					System.out.println("Descending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 					break;
 
@@ -82,8 +106,14 @@ public class Client {
 					});
 
 					System.out.println("Ascending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 
 					Collections.sort(tempEmp, (a, b) -> {
@@ -96,8 +126,14 @@ public class Client {
 							return 0;
 					});
 					System.out.println("Descending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 					break;
 
@@ -105,14 +141,26 @@ public class Client {
 					tempEmp = empImplObj.getEmployees();
 					Collections.sort(tempEmp, (a, b) -> a.getDateOfBirth().compareTo(b.getDateOfBirth()));
 					System.out.println("Ascending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 
 					Collections.sort(tempEmp, (a, b) -> b.getDateOfBirth().compareTo(a.getDateOfBirth()));
 					System.out.println("Descending order display:");
-					for (Employee e : tempEmp) {
-						System.out.println(e);
+					if (tempEmp.size() > 2) {
+						for (int i = 0; i < 3; i++) {
+							System.out.println(tempEmp.get(i));
+						}
+					} else {
+						for (Employee e : tempEmp) {
+							System.out.println(e);
+						}
 					}
 					break;
 
