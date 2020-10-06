@@ -3,8 +3,6 @@ package com.org.model.dao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 import com.org.model.beans.Account;
 
 public class CollectionBackedAccountDaoImpl implements AccountDao {

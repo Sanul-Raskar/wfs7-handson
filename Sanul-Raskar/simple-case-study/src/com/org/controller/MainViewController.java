@@ -27,7 +27,16 @@ public class MainViewController {
 				Account createdAccount = service.createAccount(account);
 				System.out.println(createdAccount);
 				break;
+
 			case 2:
+				System.out.println("Enter account number");
+				int accNum = scanner.nextInt();
+				try {
+					double balance = service.getBalance(accNum);
+					System.out.println("Balance: " + balance);
+				} catch (AccountNotFoundException e1) {
+					System.out.println(e1.getMessage());
+				}
 
 				break;
 			case 3:

@@ -23,9 +23,15 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public double getBalance(int accountNumber) {
-		Account acc = accountDao.getAccount(accountNumber);
-		return acc.getBalance();
+	public double getBalance(int accountNumber) throws AccountNotFoundException {
+
+		if (accountDao.getAccount(accountNumber) != null) {
+			Account acc = accountDao.getAccount(accountNumber);
+			return acc.getBalance();
+		} else {
+			throw new AccountNotFoundException("Account not found");
+		}
+
 	}
 
 	@Override
