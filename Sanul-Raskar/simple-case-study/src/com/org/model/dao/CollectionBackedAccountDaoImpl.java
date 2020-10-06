@@ -34,7 +34,7 @@ public class CollectionBackedAccountDaoImpl implements AccountDao {
 		account = database.stream().filter(acc -> acc.getAccountNumber() == accountNumber).distinct()
 				.collect(Collectors.toList());
 
-		if (account.size() != 0 || account != null) {
+		if (account.size() != 0 && account != null) {
 			return account.get(0);
 		}
 
