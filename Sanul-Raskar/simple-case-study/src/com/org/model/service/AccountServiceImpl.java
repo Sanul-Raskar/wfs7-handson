@@ -59,19 +59,24 @@ public class AccountServiceImpl implements AccountService {
 		Account sourceAcc = accountDao.getAccount(sourceAccountNumber);
 		Account destAcc = accountDao.getAccount(destincationAccountNumber);
 
-		if (amount > 0 && sourceAcc != null && destAcc != null) {
+		if (amount > 0 && sourceAcc != null) {
+			if (destAcc != null) {
+				if (sourceAcc.getBalance() >= amount) {
+					accountDao.updateBalance(sourceAccountNumber, sourceAcc.getBalance() - amount);
+					accountDao.updateBalance(destincationAccountNumber, destAcc.getBalance() + amount);
 
-			if (sourceAcc.getBalance() >= amount) {
-				accountDao.updateBalance(sourceAccountNumber, sourceAcc.getBalance() - amount);
-				accountDao.updateBalance(destincationAccountNumber, destAcc.getBalance() + amount);
-
+				} else {
+					// throw less bank balance exception
+					throw new InsufficientBalanceException("Insufficeint account balance to perform transaction");
+				}
 			} else {
-				// throw less bank balance exception
-				throw new InsufficientBalanceException("Insufficeint account balance to perform transaction");
+				// throw account not found exception
+				throw new AccountNotFoundException("Account not found for account number:" + destincationAccountNumber);
 			}
+
 		} else {
 			// throw account not found exception
-			throw new AccountNotFoundException("Account not found");
+			throw new AccountNotFoundException("Account not found for account number:" + sourceAccountNumber);
 		}
 
 	}
@@ -83,20 +88,24 @@ public class AccountServiceImpl implements AccountService {
 		Account sourceAcc = accountDao.getAccount(sourceAccountNumber);
 		Account destAcc = accountDao.getAccount(destincationAccountNumber);
 
-		if (amount > 0 && sourceAcc != null && destAcc != null) {
+		if (amount > 0 && sourceAcc != null) {
 
-			if (destAcc.getBalance() >= amount) {
-				accountDao.updateBalance(destincationAccountNumber, destAcc.getBalance() - amount);
-				accountDao.updateBalance(sourceAccountNumber, sourceAcc.getBalance() + amount);
+			if (destAcc != null) {
+				if (destAcc.getBalance() >= amount) {
+					accountDao.updateBalance(destincationAccountNumber, destAcc.getBalance() - amount);
+					accountDao.updateBalance(sourceAccountNumber, sourceAcc.getBalance() + amount);
 
+				} else {
+					// throw less bank balance exception
+					throw new InsufficientBalanceException("Insufficeint account balance to perform transaction");
+				}
 			} else {
-				// throw less bank balance exception
-				throw new InsufficientBalanceException("Insufficeint account balance to perform transaction");
-
+				throw new AccountNotFoundException("Account not found for account number:" + destincationAccountNumber);
 			}
+
 		} else {
 			// throw account not found exception
-			throw new AccountNotFoundException("Account not found");
+			throw new AccountNotFoundException("Account not found for account number:" + sourceAccountNumber);
 
 		}
 
