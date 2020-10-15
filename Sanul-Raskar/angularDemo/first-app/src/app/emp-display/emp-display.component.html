@@ -1,0 +1,16 @@
+<table style="width: 100%; text-align: center">
+  <tr>
+    <th>Emp ID</th>
+    <th>Name</th>
+    <th>Designation</th>
+    <th>DOB</th>
+    <th>Salary</th>
+  </tr>
+  <tr *ngFor="let emp of empData">
+    <td>{{ emp.id }}</td>
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.designation }}</td>
+    <td>{{ emp.dob | date: "dd/MM/yyyy" }}</td>
+    <td>{{ emp.salary | currency: "INR" }}</td>
+  </tr>
+</table>

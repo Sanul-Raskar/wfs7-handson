@@ -1,0 +1,6 @@
+<h4 *ngFor="let user of userProfile">
+  Name: {{ user.name | uppercase }} and Dob: {{ user.dob | date }}
+</h4>
+
+<p>Salary in USD : {{ salary | currency }}</p>
+<p>Salary in INR : {{ salary | currency: "INR" }}</p>
