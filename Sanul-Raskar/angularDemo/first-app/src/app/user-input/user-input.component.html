@@ -1,0 +1,9 @@
+<div>
+    <h2>User Input Demo</h2>
+    <form>
+        Username <input type = "text" name = "un" #u autocomplete="off"> <br />
+        Password <input type = "password" name = "pw" #p> <br />
+        <input type = "button" value = "Login" (click) = "handleButton(u.value, p.value)">
+    </form>
+    <h3>Entered Username: {{username}} and Password: {{password}}</h3>
+</div>
