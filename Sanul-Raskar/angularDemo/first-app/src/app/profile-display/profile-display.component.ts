@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { USR_ARRAY } from '../mock'
+import AppServiceService from '../app-service.service'
 
 
 @Component({
@@ -8,11 +9,19 @@ import { USR_ARRAY } from '../mock'
   styleUrls: ['./profile-display.component.css']
 })
 export class ProfileDisplayComponent {
-  userProfile: any = null;
+ /*  userProfile: any = null;
   salary: number = null;
   constructor() {
     this.userProfile = USR_ARRAY;
     this.salary = 2500;
+  }
+ */
+
+  userCollection : any = undefined;
+  constructor(private service: AppServiceService) {}
+
+  handleClick() {
+    this.userCollection = this.service.fetchUsers();
   }
 
 }

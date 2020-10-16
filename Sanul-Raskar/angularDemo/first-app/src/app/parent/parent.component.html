@@ -1,0 +1,35 @@
+<div class="container">
+  <div style="text-align: center">
+    <h2>This is parent component</h2>
+    <input type="text" name="pn" [(ngModel)]="parentName" />
+    <h2>Parent Component name : {{ parentName }}</h2>
+  </div>
+  
+  <hr />
+  <div style="text-align: center">
+    <app-names-item [username]="names[2]"></app-names-item>
+  </div>
+  <hr />
+  <div>
+    <ul>
+      <li *ngFor="let n of names">
+        <app-names-item [username]="n"></app-names-item>
+      </li>
+    </ul>
+  </div>
+
+  <hr />
+  <h3>(In Parent Component) -> Child Counter : {{ childCounter }}</h3>
+  <h3>
+    (In Parent Component) -> Likes : {{ likes }} :: Dislikes: {{ dislikes }}
+  </h3>
+  <br /><br />
+  <hr />
+  <app-child
+    [childName]="parentName"
+    (counterEvent)="childCounter = $event"
+    (likeCounterEvent)="likes = $event"
+    (dislikeCounterEvent)="dislikes = $event"
+  ></app-child>
+  <br /><br />
+</div>

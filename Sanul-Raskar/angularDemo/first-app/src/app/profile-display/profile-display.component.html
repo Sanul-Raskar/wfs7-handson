@@ -1,6 +1,19 @@
-<h4 *ngFor="let user of userProfile">
+<!-- <h4 *ngFor="let user of userProfile">
   Name: {{ user.name | uppercase }} and Dob: {{ user.dob | date }}
 </h4>
 
 <p>Salary in USD : {{ salary | currency }}</p>
-<p>Salary in INR : {{ salary | currency: "INR" }}</p>
+<p>Salary in INR : {{ salary | currency: "INR" }}</p> -->
+
+
+<button (click) = "handleClick()" class = "btn btn-primary">Show Profiles</button>
+<br>
+<table class = "table">
+    <tr>
+        <th>Name</th>
+        <th>Dob</th>
+    </tr>
+    <tr *ngFor = "let user of userCollection">
+        <td>{{user.name}}</td><td>{{user.dob}}</td>
+    </tr>
+</table>
