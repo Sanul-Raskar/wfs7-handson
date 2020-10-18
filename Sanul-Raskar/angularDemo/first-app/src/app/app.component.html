@@ -1,9 +1,9 @@
 <div>
   <h1 class="header">Angular Demo</h1>
   <p>Name: {{ user.name }} and birthday is on {{ user.dob }}</p>
-  <br><br>
+  <br /><br />
 
-<!--   <app-emp-display></app-emp-display>
+  <!--   <app-emp-display></app-emp-display>
 
   <br /><br />
 
@@ -12,8 +12,13 @@
   <app-parent></app-parent> -->
 
   <div class="container">
-    <app-profile-display></app-profile-display>
+    <div class="row">
+      <div class="col-sm-6">
+        <app-user-register></app-user-register>
+      </div>
+      <div class="col-sm-6">
+        <app-profile-display></app-profile-display>
+      </div>
+    </div>
   </div>
-
-
 </div>

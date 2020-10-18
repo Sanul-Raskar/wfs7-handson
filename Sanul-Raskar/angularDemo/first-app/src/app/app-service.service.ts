@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
-import { USR_ARRAY } from './mock'
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export default class AppServiceService {
+  // webservice base url
+  baseUrl: string = "http://localhost:9090"
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  login(username: string, password: string) {
-    if (username === 'Alex') {
-      console.log("login success");
-    } else {
-      console.log("login failed");
-    }
+  login(username: string, password: string): void {
 
   }
+  fetchUsers(): Observable<any> {
+    let fetchUsersUrl = `${this.baseUrl}/users`;
+    return this.http.get(fetchUsersUrl);
+  }
 
-  fetchUsers() {
-    return USR_ARRAY;
+  storeUser(user : any) : Observable<any> {
+    let storeUrl = `${this.baseUrl}/store`
+    return this.http.post(storeUrl, user);
   }
 }

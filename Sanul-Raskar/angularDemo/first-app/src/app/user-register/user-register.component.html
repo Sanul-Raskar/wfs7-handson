@@ -1,0 +1,28 @@
+<div>
+    <h3>Registration Form</h3>
+    <hr />
+    <h4 *ngIf = "message">Status: {{message}}</h4>
+    <div class = "form-group">
+        <form #registration = "ngForm" (ngSubmit) = "handleStore(registration.value)">
+            <div class = "row">
+                <div class = "col-3">
+                    <label>Enter User Id</label>
+                </div>
+                <div class = "col-4">
+                    <input type = "text" name = "userId" [(ngModel)]= "userId" class = "form-control">
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-3">
+                    <label>Enter Name</label>
+                </div>
+                <div class = "col-4">
+                    <input type = "text" name = "name" [(ngModel)]= "name" class = "form-control">
+                </div>
+            </div>
+            <div class = "row">
+                <input type = "submit" value = "Register" class = "alert alert-dark">
+            </div>
+        </form>
+    </div>
+</div>
