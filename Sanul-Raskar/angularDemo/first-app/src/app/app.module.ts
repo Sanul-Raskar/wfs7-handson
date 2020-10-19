@@ -11,6 +11,15 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { NamesItemComponent } from './names-item/names-item.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { Routes, RouterModule} from '@angular/router';
+
+const routes : Routes = [
+  {path : "", component : UserInputComponent},
+  {path : "register", component : UserRegisterComponent},
+  {path : "profileDisplay", component : ProfileDisplayComponent},
+  {path : "login", component : UserInputComponent},
+  {path : "parentChild", component : ParentComponent}
+];
 
 @NgModule({
   declarations: [
@@ -24,7 +33,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
     UserRegisterComponent
   ],
   imports: [
-    BrowserModule,FormsModule,HttpClientModule
+    BrowserModule,FormsModule,HttpClientModule,RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
