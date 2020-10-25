@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <h3>Login Form Demo</h3>
+  <div class="form-group">
+    <form #login="ngForm" (ngSubmit)="handleSubmit(login.value)">
+      <div class="row">
+        <div class="col-3">
+          <input
+            type="text"
+            name="user"
+            autocomplete="off"
+            #un="ngModel"
+            [(ngModel)]="username"
+            class="form-control"
+            placeholder="Enter Username"
+            required
+          />
+        </div>
+        <div class="col-3">
+          <input
+            type="password"
+            name="pass"
+            #pw="ngModel"
+            [(ngModel)]="password"
+            class="form-control"
+            placeholder="Enter Password"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="alert alert-danger" [hidden]="un.valid || un.pristine">
+            Username is required
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="alert alert-danger" [hidden]="pw.valid || pw.pristine">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <input type="submit" value="Login" class="btn btn-primary" />
+        </div>
+      </div>
+    </form>
+    <br />
+    <!-- the link that takes you to register-->
+    <a routerLink="/register">Create User</a>
+  </div>
+</div>
